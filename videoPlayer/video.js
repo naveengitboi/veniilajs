@@ -46,8 +46,7 @@ function scrub(e) {
     video.currentTime = scrubtime;
 }
 
-function fullScreen(e) {
-    e.preventDefault()
+function fullScreen() {
     video.requestFullscreen()
 }
 
