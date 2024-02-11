@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: monospace;
+  font-size: 0.85rem;
 }
 
 body {
@@ -14,49 +15,74 @@ body {
 .player {
   position: relative;
   overflow: hidden;
-    transition: all 0.5s ease;
-    color: white;
-    font-weight: bold;
-
+  transition: all 0.5s ease;
+  color: white;
+  font-weight: bold;
 }
-
 
 .playerControls {
   position: absolute;
   left: 0;
-  bottom: -20px;
+  bottom: 0;
+  transform: translateY(60%);
   transition: all 0.35s ease;
-  
+  padding: 0.5rem 0;
 }
-.player:hover .playerControls
-{
-    bottom: 10px;
+
+.player:hover .playerControls {
+  transform: translateY(-0%);
+}
+
+.progress {
+  width: 100%;
+  background-color: white;
+  height: 8px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.progressFilled {
+  /* min-width: 100px; */
+  background-color: yellow;
+  height: inherit;
+  display: flex;
+  /* position: absolute; */
+  flex-basis: 20%;
+}
+.playerAdjustments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 button {
   background-color: transparent;
   border: none;
   outline: none;
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 input[type="range"] {
   overflow: hidden;
+  height: 8px;
   -webkit-appearance: none;
   background-color: #ffd500;
   cursor: pointer;
+  margin: 0 0.25rem;
 }
 
-
 input[type="range"]::-webkit-slider-thumb {
-  width: 10px;
+  width: 8px;
   -webkit-appearance: none;
-  height: 10px;
+  height: 8px;
   /* cursor: ew-resize; */
   cursor: pointer;
   background: #434343;
   box-shadow: -80px 0 0 80px #43e5f7;
+  border-radius: 50%;
 }
 .playerInput {
   width: 100%;
