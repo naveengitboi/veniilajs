@@ -62,3 +62,4 @@ projects.map((item) => {
     bordersDiv.appendChild(linkTag)
     projectsListEle.appendChild(bordersDiv)
 })
+

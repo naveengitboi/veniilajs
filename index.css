@@ -77,7 +77,6 @@ body {
 }
 .codebox {
   background-color: var(--code_bg);
-
 }
 
 .codeHeader {
@@ -99,23 +98,21 @@ body {
   cursor: pointer;
 }
 
-.codes pre
-{
+.codes pre {
   white-space: none;
   height: 300px;
   overflow-y: scroll;
   position: relative;
+  tab-size: 4;
 }
 
-.codes pre::-webkit-scrollbar
-{
+.codes pre::-webkit-scrollbar {
   width: 5px;
   background-color: var(--code_bg);
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
-.codes pre::-webkit-scrollbar-thumb
-{
+.codes pre::-webkit-scrollbar-thumb {
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
 }

@@ -4,35 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="player.css" />
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
     <title>Video Player</title>
   </head>
   <body>
     <div class="videoPlayerApp">
       <div class="player">
         <video src="./video.mp4" class="playerVideo viewer"></video>
-      
+
         <div class="playerControls">
           <div class="progress">
             <div class="progressFilled"></div>
           </div>
-      
+
           <div class="playerAdjustments">
-            <button class="playerButton toggle" title="Toggle Player">▶️</button>
-            <input type="range" name="volume" class="playerSlider playerInput" min="0" max="1" step="0.05" value="1" />
-            <input type="range" name="playbackRate" class="playerSlider speedController" min="0.5" max="2" step="0.1"
-              value="1" />
-      
-            <button data-skip="-10" class="playerButton">
-              <<10s>>
+            <button class="playerButton toggle" title="Toggle Player">
+              ▶️
             </button>
-            <button data-skip="15" class="playerButton">
-              <<15>>
-            </button>
+            <input
+              type="range"
+              name="volume"
+              class="playerSlider playerInput"
+              min="0"
+              max="1"
+              step="0.05"
+              value="1"
+            />
+            <input
+              type="range"
+              name="playbackRate"
+              class="playerSlider speedController"
+              min="0.5"
+              max="2"
+              step="0.1"
+              value="1"
+            />
+
+            <button data-skip="-10" class="playerButton"><<10s>></button>
+            <button data-skip="15" class="playerButton"><<15>></button>
           </div>
-      
+
           <div class="valuesData">
             <table>
               <tr>
@@ -49,24 +65,22 @@
           </div>
         </div>
       </div>
-      
+
       <div class="codes">
         <div class="codebox">
-          
           <div class="codeHeader">
-            <h4>JS</h4>
+            <h4>css</h4>
             <div class="codeHeaderButtons">
-              <button class="viewCode">View</button>
-              <button class="copyCode">Copy</button>
+              <button class="viewCode" data-language="css">View</button>
+              <button class="copyCode" data-language="css" >Copy</button>
             </div>
           </div>
-          <pre>
-            <code class="language-js">
+          <pre data-type="css">
+            <code class="language-css" data-type="css" >
               * {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
-              font-family: monospace;
               font-size: 0.95rem;
               }
               
@@ -80,14 +94,213 @@
               var(--background_color_2)
               );
               }
+              
+              .player {
+              position: relative;
+              overflow: hidden;
+              transition: all 0.5s ease;
+              color: white;
+              font-weight: bold;
+              border-radius: 1rem;
+              width: 400px;
+              }
+              
+              .playerVideo {
+              width: 100%;
+              }
+              .playerControls {
+              width: 100%;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              transform: translateY(75%);
+              transition: all 0.45s ease;
+              padding: 0.5rem 0;
+              }
+              
+              .player:hover .playerControls {
+              transform: translateY(-0%);
+              }
+              
+              .progress {
+              width: 100%;
+              background-color: white;
+              height: 10px;
+              position: relative;
+              cursor: pointer;
+              display: flex;
+              flex-wrap: wrap;
+              }
+              
+              .progressFilled {
+              /* min-width: 100px; */
+              background-color: yellow;
+              height: inherit;
+              display: flex;
+              /* position: absolute; */
+              flex-basis: 20%;
+              }
+              .playerAdjustments {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              }
+              
+              .player button {
+              background-color: transparent;
+              border: none;
+              outline: none;
+              color: var(--text_white_color);
+              font-weight: bold;
+              }
+              
+              .player input[type="range"] {
+              overflow: hidden;
+              height: 8px;
+              -webkit-appearance: none;
+              background-color: #ffffff;
+              cursor: pointer;
+              margin: 0 0.25rem;
+              border-radius: 0.5rem;
+              position: relative;
+              }
+              
+              .player input[type="range"]::-webkit-slider-thumb {
+              width: 8px;
+              -webkit-appearance: none;
+              height: 8px;
+              /* cursor: ew-resize; */
+              cursor: pointer;
+              background: red;
+              border-radius: 50%;
+              }
+              
+              .valuesData {
+              font-size: 0.75rem;
+              }
+              .valuesData table {
+              width: 100%;
+              text-align: left;
+              }
+
             </code>
           </pre>
+        </div>
+
+        <div class="codebox">
+          <div class="codeHeader">
+            <h4>JS</h4>
+            <div class="codeHeaderButtons">
+              <button class="viewCode" data-language="js">View</button>
+              <button class="copyCode" data-language="js">Copy</button>
+            </div>
+          </div>
+          <pre data-type="js">
+            <code class="language-javascript" data-type="js">
+              const player = document.querySelector(".player");
+              const video = player.querySelector(".viewer");
+              const progress = player.querySelector(".progress");
+              const toggle = player.querySelector(".toggle");
+              const progressBar = player.querySelector(".progressFilled");
+              const skipButtons = player.querySelectorAll('[data-skip]');
+              const ranges = player.querySelectorAll(".playerSlider");
+              const volumeValue = player.querySelector(".volumeValue");
+              const currentVideoTime = player.querySelector(".currentTime");
+              const speedValue = player.querySelector(".speedValue");
+              
+              
+              
+              //functions
+              function togglePlay() {
+              if (video.paused) {
+              video.play();
+              }
+              else {
+              video.pause();
+              }
+              }
+              
+              function updateBtn() {
+              if (video.paused) {
+              toggle.textContent = '▶️';
+              }
+              else {
+              toggle.textContent = '⏸️'
+              }
+              }
+              
+              function skip() {
+              video.currentTime += parseFloat(this.dataset.skip);
+              }
+              
+              function handleRangeUpdate() {
+              video[this.name] = this.value
+              if(this.name == 'volume'){
+              volumeValue.textContent = this.value
+              }
+              if (this.name == 'playbackRate') {
+              speedValue.textContent = this.value
+              }
+              }
+              
+              function handleProgress() {
+              const percent = (video.currentTime / video.duration) * 100
+              progressBar.style.flexBasis = `${percent}%`
+              currentVideoTime.textContent =video.currentTime.toFixed(2)
+              }
+              
+              function scrub(e) {
+              console.log(e)
+              const scrubtime = (e.layerX / progress.offsetWidth) * video.duration;
+              console.log(scrubtime)
+              video.currentTime = scrubtime;
+              }
+              
+              function fullScreen() {
+              video.requestFullscreen()
+              }
+              
+              //listeners
+              
+              video.addEventListener('click', togglePlay);
+              
+              video.addEventListener('play', updateBtn);
+              video.addEventListener('pause', updateBtn)
+              video.addEventListener('timeupdate', handleProgress)
+              
+              toggle.addEventListener('click', togglePlay);
+              
+              skipButtons.forEach((btn) => {
+              btn.addEventListener('click', skip)
+              })
+              
+              
+              ranges.forEach((range) => {
+              range.addEventListener('change', handleRangeUpdate)
+              })
+              
+              ranges.forEach((range) => {
+              range.addEventListener('mousemove', handleRangeUpdate)
+              })
+              
+              let mouseDown = false;
+              progress.addEventListener('click', (e) => scrub(e))
+              
+              progress.addEventListener('mousemove', (e) => mouseDown && scrub(e))
+              progress.addEventListener('mousedown', () => mouseDown = true)
+              progress.addEventListener('mouseup', () => mouseDown = false)
+
+            </code>
+                  </pre>
         </div>
       </div>
     </div>
 
-<script src="./video.js"></script>
+    <script src="./video.js"></script>
+    <script src="/copyCode.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>
