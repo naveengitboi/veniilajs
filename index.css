@@ -77,9 +77,11 @@ body {
 }
 .codebox {
   background-color: var(--code_bg);
+  min-width: 50vw;
 }
 
 .codeHeader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,6 +101,7 @@ body {
 }
 
 .codes pre {
+  width: 100%;
   white-space: none;
   height: 300px;
   overflow-y: scroll;
