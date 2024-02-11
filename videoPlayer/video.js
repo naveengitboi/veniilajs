@@ -5,8 +5,13 @@ const toggle = player.querySelector(".toggle");
 const progressBar = player.querySelector(".progressFilled");
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll(".playerSlider");
+const volumeValue = player.querySelector(".volumeValue");
+const currentVideoTime = player.querySelector(".currentTime");
+const speedValue = player.querySelector(".speedValue");
 
 
+
+//functions
 function togglePlay() {
     if (video.paused) {
         video.play();
@@ -31,12 +36,18 @@ function skip() {
 
 function handleRangeUpdate() {
     video[this.name] = this.value
+    if(this.name == 'volume'){
+        volumeValue.textContent = this.value
+    }
+    if (this.name == 'playbackRate') {
+        speedValue.textContent = this.value
+    }
 }
 
 function handleProgress() {
     const percent = (video.currentTime / video.duration) * 100
     progressBar.style.flexBasis = `${percent}%`
-
+    currentVideoTime.textContent =video.currentTime.toFixed(2)
 }
 
 function scrub(e) {

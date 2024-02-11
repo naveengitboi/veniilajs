@@ -3,13 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: monospace;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem 0;
+  background: radial-gradient(white, rgb(153, 153, 153));
 }
 
 .player {
@@ -20,12 +22,17 @@ body {
   font-weight: bold;
 }
 
+.playerVideo
+{
+  width: 400px;
+}
 .playerControls {
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
-  transform: translateY(60%);
-  transition: all 0.35s ease;
+  transform: translateY(75%);
+  transition: all 0.45s ease;
   padding: 0.5rem 0;
 }
 
@@ -36,7 +43,7 @@ body {
 .progress {
   width: 100%;
   background-color: white;
-  height: 8px;
+  height: 10px;
   position: relative;
   cursor: pointer;
   display: flex;
@@ -69,9 +76,11 @@ input[type="range"] {
   overflow: hidden;
   height: 8px;
   -webkit-appearance: none;
-  background-color: #ffd500;
+  background-color: #ffffff;
   cursor: pointer;
   margin: 0 0.25rem;
+  border-radius: 0.5rem;
+  position: relative;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -80,10 +89,18 @@ input[type="range"]::-webkit-slider-thumb {
   height: 8px;
   /* cursor: ew-resize; */
   cursor: pointer;
-  background: #434343;
-  box-shadow: -80px 0 0 80px #43e5f7;
+  background: red;
+  box-shadow: -80px 0 0 80px yellow;
   border-radius: 50%;
 }
-.playerInput {
-  width: 100%;
+
+.valuesData
+{
+  font-size: 0.75rem;
 }
+.valuesData table
+{
+  width: 100%;
+  text-align: left;
+}
+
