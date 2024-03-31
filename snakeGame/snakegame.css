@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.snakeGameContainer
+{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+    min-height: 100vh;
+
+}
+.snakeScore
+{
+    width:auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.snakeGameBorders
+{
+    border: 10px solid goldenrod;
+    position: relative;
+    width: fit-content;
+}
+
+.snakeInnerBorder
+{
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
+}
+.snakeHead
+{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    transform-origin: center;
+}
+
+.instructions
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.35rem;
+    text-align: center;
+    z-index: 100;
+    color:rgb(0, 138, 11);
+
+}
+
+.snakeFood
+{
+    width:20px ;
+    height: 20px;
+    background-color: rgb(0, 107, 149);
+    position: absolute;
+    top: 20px ;
+    transform-origin: center;
+}

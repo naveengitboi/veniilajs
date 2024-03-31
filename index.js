@@ -6,10 +6,9 @@ const projects = [
         learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
     },
     {
-        projectUrl: '/videoPlayer/index.html',
-        projectName: "Video Player",
-        description: "video player with Custom Controls",
-        learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
+        projectUrl: '/snakeGame/index.html',
+        projectName: "Snake Game",
+        description: "Simple Old Retro Snake Game"
     },
       {
         projectUrl: '/videoPlayer/index.html',
