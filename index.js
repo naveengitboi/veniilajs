@@ -1,19 +1,23 @@
 const projects = [
     {
-        projectUrl: '/videoPlayer/index.html',
+        projectUrl: 'videoPlayer/index.html',
         projectName: "Video Player",
         description: "video player with Custom Controls",
-        learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
+        learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used.",
+        thumbnail: "", 
     },
     {
-        projectUrl: '/snakeGame/index.html',
+        projectUrl: 'snakeGame/index.html',
         projectName: "Snake Game",
-        description: "Simple Old Retro Snake Game"
+        description: "Simple Old Retro Snake Game",
+        thumbnail: "", 
+        learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
     },
       {
-        projectUrl: '/videoPlayer/index.html',
+        projectUrl: 'pianoGame/index.html',
         projectName: "Video Player",
         description: "video player with Custom Controls",
+        thumbnail: "", 
         learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
     }
 ]
@@ -24,13 +28,13 @@ const projectsListEle = document.querySelector('.projectsList');
 
 
 
-projects.map((item) => {
+function createPane(project){
     //bordersDiv
     const bordersDiv = document.createElement('div')
     bordersDiv.setAttribute('class', 'bordersDiv')
     //a tag
     const linkTag = document.createElement('a')
-    linkTag.setAttribute('href', item.projectUrl)
+    linkTag.setAttribute('href', project.projectUrl)
     //Project Card
     const projectCard = document.createElement('div')
     projectCard.setAttribute('class', 'projectCard')
@@ -41,12 +45,12 @@ projects.map((item) => {
     //h3 
     const heading = document.createElement('h3');
     heading.setAttribute('class', 'heading');
-    heading.textContent = `${item.projectName}`
+    heading.textContent = `${project.projectName}`
 
     //p 
     const description = document.createElement('p');
     description.setAttribute('class', 'description');
-    description.textContent = `${item.description}`
+    description.textContent = `${project.description}`
 
 
     //appending elements
@@ -60,5 +64,11 @@ projects.map((item) => {
 
     bordersDiv.appendChild(linkTag)
     projectsListEle.appendChild(bordersDiv)
+}
+
+projects.map((item) => {
+    createPane(item);
 })
+
+
 

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano Board</title>
+
+    <link rel="stylesheet" href="pianoStyles.css" />
+  </head>
+  <body>
+    <div class="pnWrapper">
+      <div class="pianoBoard">
+        <div class="pianoHeader">
+          <p class="mediumContent">Piano Board</p>
+          <div class="pianoControls">
+            <div class="volumeControls control">
+              <span>Volume</span>
+              <input type="range" min="0" title="value" max="100" step="1" />
+            </div>
+            <div class="keysControls control">
+              <span>Show Keys</span>
+              <input type="checkbox" />
+            </div>
+          </div>
+        </div>
+        <div class="pianoKeys">
+          <div class="key pianoKey">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="pianoApp.js"></script>
+  </body>
+</html>

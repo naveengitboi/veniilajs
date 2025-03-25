@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgColor: #CCFFBD;
+  --bgColor: black;
+  --boardColor: #001C30;
+}
+.mediumContent {
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.smallContent {
+  font-size: 1.2rem;
+}
+.tinyContent {
+  font-size: 0.85rem;
+}
+.pnWrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgColor);
+}
+
+.pianoBoard {
+  min-width: 800px;
+  background: var(--boardColor);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.pianoHeader
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0.85rem 1.25rem;
+}
+
+.pianoControls
+{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control
+{
+  border: 2px solid blue;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.volumeControls input
+{
+  accent-color: green;
+}
+
+.keysControls input
+{
+  width: 60px;
+  appearance: none;
+  height: 30px;
+  position: relative;
+  background: pink;
+  border-radius: 30px;
+}
+
+.keysControls input::before
+{
+  content: "";
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+  background: green;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index: 2;
+}
+
+
+
+
