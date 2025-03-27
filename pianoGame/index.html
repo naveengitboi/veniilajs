@@ -18,7 +18,7 @@
               <input type="range" min="0" title="100" max="100" step="1" value="100" />
             </div>
             <div class="keysControls control">
-              <span>Show Keys</span>
+              <span>Hide Keys</span>
               <input type="checkbox" />
             </div>
           </div>
@@ -27,7 +27,27 @@
         </div>
 
       </div>
+      <div class="themeSelection">
+        <div class="themeCode">
+          <span>Background</span>
+          <input type="color" value="#000000" name="--bgColor">
+        </div>
+        <div class="themeCode">
+          <span>Board Color</span>
+          <input type="color" value="#001C30" name="--boardColor">
+        </div>
+        <div class="themeCode">
+          <span>Font Color</span>
+          <input type="color" value="#727577" name="--fontColor">
+        </div>
+        <div class="themeCode">
+          <span>Nodes Color</span>
+          <input type="color" value="#ffffff" name="--pianoKeyColor">
+        </div>
+
+      </div>
     </div>
+
 
     <script src="constants.js"></script>
     <script src="pianoApp.js"></script>

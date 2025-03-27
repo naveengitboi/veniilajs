@@ -2,7 +2,6 @@ let pianoBoard = document.querySelector(".keyPadPiano");
 const volumeKey = document.querySelector(".volumeControls input");
 const showKeys = document.querySelector(".keysControls input");
 
-
 let volume = 100;
 
 function createDivElement(key) {
@@ -17,13 +16,27 @@ volumeKey.addEventListener("change", (e) => {
   volumeKey.title = volume;
 });
 
-showKeys.addEventListener('click', (e) => {
-  let isChecked = e.target.checked;
-  console.log(isChecked);
+function clearInnerText(element, isChecked ) {
+  let counts = element.childElementCount;
   if(isChecked){
-
+    element.classList.add('hideKeys');
+  }else{
+    element.classList.remove('hideKeys');
   }
-})
+  if (counts) {
+    let currElementChilds = element.children;
+    for (let currEle of currElementChilds) {
+      clearInnerText(currEle, isChecked);
+    }
+  }}
+
+showKeys.addEventListener("click", (e) => {
+  let isChecked = e.target.checked;
+  let children = pianoBoard.children;
+    for (let child of children) {
+      clearInnerText(child, isChecked);
+    }
+});
 
 keys.forEach((item) => {
   let parent = createDivElement(item[0]);
@@ -33,6 +46,7 @@ keys.forEach((item) => {
     parent.appendChild(child);
   }
   pianoBoard.appendChild(parent);
+
 });
 
 function checkIfKeySame(element, key, byClick) {
@@ -66,25 +80,25 @@ function playTune(key) {
   addActiveClass(key);
 }
 
-function iterateThroughKeys(keyPressed){
+function iterateThroughKeys(keyPressed) {
   const size = keys.length;
-    for (let i = 0; i < size; i++) {
-      for (let j = 0; j < keys[i].length; j++) {
-        if (keyPressed == keys[i][j].key) {
-          playTune(keys[i][j]);
-        }
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < keys[i].length; j++) {
+      if (keyPressed == keys[i][j].key) {
+        playTune(keys[i][j]);
       }
     }
+  }
 }
 function playKeySound(event, byClick) {
   let keyPressed;
   if (!byClick) {
-    keyPressed = event.key; 
+    keyPressed = event.key;
     iterateThroughKeys(keyPressed);
   }
-  if(byClick){
+  if (byClick) {
     let target = event.target;
-    if(target.classList.contains("key")){
+    if (target.classList.contains("key")) {
       keyPressed = target.firstChild.data;
       iterateThroughKeys(keyPressed);
     }
@@ -93,4 +107,3 @@ function playKeySound(event, byClick) {
 
 window.addEventListener("keydown", (e) => playKeySound(e, false));
 window.addEventListener("click", (e) => playKeySound(e, true));
-

@@ -10,7 +10,7 @@
   --fontColor: gray;
   --pianoKeyColor: #ffffff;
   --activeKeyColor:#E1E1E1;
-  --topPianoKeyColor: black;
+  --topPianoKeyColor: var(--bgColor);
   
 }
 .mediumContent {
@@ -25,6 +25,7 @@
   font-size: 0.85rem;
 }
 .pnWrapper {
+  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -148,6 +149,28 @@
 
 .hideKeys{
   font-size: 0;
+}
+
+.themeSelection
+{
+  position:absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid red;
+}
+
+.themeSelection .themeCode
+{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--fontColor);
+}
+
+.themeSelection .themeCode input
+{
+  
 }
 
 

@@ -1,11 +1,12 @@
 const root = document.documentElement;
+const themesInputEle = document.querySelectorAll('.themeSelection .themeCode input')
 
 const themes = [
   {
-    '--bgColor': "red",
-    '--boardColor': '#001C30',
-    '--keyColor': "gray",
-    "--activeKeyColor":'#E1E1E1',
+    "--bgColor": "black",
+    "--boardColor": "#001C30",
+    "--fontColor": "gray",
+    "--pianoKeyColor": "white",
   }
 ]
 
@@ -13,7 +14,15 @@ const color = getComputedStyle(root)
 console.log(color);
 
 console.log(themes);
-for(let key of themes[0]){
-  console.log(key);
-  root.style.setProperty(key, themes[0].key);
+
+for(let i = 0; i<themes.length; i++){
+  for(let theme in themes[i]){
+    root.style.setProperty(theme, themes[i][theme]);
+  }
 }
+
+themesInputEle.forEach((input) => {
+  input.addEventListener('change', (e) => {
+    root.style.setProperty(e.target.name, e.target.value);
+  })
+})
