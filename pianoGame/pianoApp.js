@@ -1,6 +1,10 @@
 let pianoBoard = document.querySelector(".keyPadPiano");
 const volumeKey = document.querySelector(".volumeControls input");
+const showKeys = document.querySelector(".keysControls input");
+
+
 let volume = 100;
+
 function createDivElement(key) {
   let div = document.createElement("div");
   div.classList.add("key", key.color);
@@ -8,9 +12,17 @@ function createDivElement(key) {
   return div;
 }
 
-volumeKey.addEventListener('change', (e) => {
+volumeKey.addEventListener("change", (e) => {
   volume = e.target.value;
-  volumeKey.title = volume
+  volumeKey.title = volume;
+});
+
+showKeys.addEventListener('click', (e) => {
+  let isChecked = e.target.checked;
+  console.log(isChecked);
+  if(isChecked){
+
+  }
 })
 
 keys.forEach((item) => {
@@ -20,50 +32,65 @@ keys.forEach((item) => {
     let child = createDivElement(item[i]);
     parent.appendChild(child);
   }
-
   pianoBoard.appendChild(parent);
 });
 
-function checkIfKeySame(element, key){
+function checkIfKeySame(element, key, byClick) {
   let counts = element.childElementCount;
   let text = element.firstChild.data;
-  if(text == key.key){
+  if (text == key.key) {
     element.classList.add("activeKey");
     setTimeout(() => {
       element.classList.remove("activeKey");
-    },300)
+    }, 300);
   }
-  if(counts){
+  if (counts) {
     let currElementChilds = element.children;
-    for(let currEle of currElementChilds){
-      checkIfKeySame(currEle, key);
+    for (let currEle of currElementChilds) {
+      checkIfKeySame(currEle, key, false);
     }
   }
 }
 
 function addActiveClass(key) {
   let children = pianoBoard.children;
-  for(let child of children){
-    checkIfKeySame(child, key);
+  for (let child of children) {
+    checkIfKeySame(child, key, false);
   }
 }
 
 function playTune(key) {
   let audio = new Audio(key.tune);
   audio.play();
-  audio.volume = volume/100;
+  audio.volume = volume / 100;
   addActiveClass(key);
 }
 
-function playKeySound(event) {
+function iterateThroughKeys(keyPressed){
   const size = keys.length;
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < keys[i].length; j++) {
-      if (event.key == keys[i][j].key) {
-        playTune(keys[i][j]);
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < keys[i].length; j++) {
+        if (keyPressed == keys[i][j].key) {
+          playTune(keys[i][j]);
+        }
       }
+    }
+}
+function playKeySound(event, byClick) {
+  let keyPressed;
+  if (!byClick) {
+    keyPressed = event.key; 
+    iterateThroughKeys(keyPressed);
+  }
+  if(byClick){
+    let target = event.target;
+    if(target.classList.contains("key")){
+      keyPressed = target.firstChild.data;
+      iterateThroughKeys(keyPressed);
     }
   }
 }
 
-window.addEventListener("keydown", playKeySound);
+window.addEventListener("keydown", (e) => playKeySound(e, false));
+window.addEventListener("click", (e) => playKeySound(e, true));
+
