@@ -55,7 +55,6 @@
 
 .control
 {
-  border: 2px solid blue;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -91,6 +90,53 @@
   transform:translateY(-50%);
   z-index: 2;
 }
+
+.keyPadPiano{
+  --size: 80px;
+  --keyHeight: 250px;
+  display: grid;
+  grid-template-columns: repeat(10, var(--size));
+  gap: 2px;
+  padding: 1rem;
+}
+
+.key
+{
+  height: var(--keyHeight);
+  background: white;
+  color: gray;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1rem ;
+  cursor: pointer;
+  border-radius: 2px 2px 5px 5px;
+  padding: 1.25rem 0;
+
+}
+.white 
+{
+  position: relative;
+}
+.black
+{
+  --diff: 10px;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: calc(var(--size) / 2 + var(--diff) / 2)  ;
+  width: calc(var(--size) - var(--diff));
+  height: calc(var(--keyHeight) - 70px);
+  z-index: 100;
+}
+
+.activeKey
+{
+  transform: scale(0.98);
+  background:#E1E1E1;
+}
+
 
 
 

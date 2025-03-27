@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piano Board</title>
 
-    <link rel="stylesheet" href="pianoStyles.css" />
+<link rel="stylesheet" href="pianoStyles.css" />
   </head>
   <body>
     <div class="pnWrapper">
@@ -15,7 +15,7 @@
           <div class="pianoControls">
             <div class="volumeControls control">
               <span>Volume</span>
-              <input type="range" min="0" title="value" max="100" step="1" />
+              <input type="range" min="0" title="100" max="100" step="1" value="100" />
             </div>
             <div class="keysControls control">
               <span>Show Keys</span>
@@ -23,15 +23,13 @@
             </div>
           </div>
         </div>
-        <div class="pianoKeys">
-          <div class="key pianoKey">
-
-          </div>
+        <div class="keyPadPiano">
         </div>
 
       </div>
     </div>
 
+    <script src="constants.js"></script>
     <script src="pianoApp.js"></script>
   </body>
 </html>
