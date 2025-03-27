@@ -151,12 +151,30 @@
   font-size: 0;
 }
 
+.circle 
+{
+  --size: 30px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--bgColor);
+  transition: all 0.2s ease;
+}
+
+.circleActive
+{
+  background: var(--pianoKeyColor);
+}
+
 .themeSelection
 {
   position:absolute;
-  top: 0;
+  top: -100%;
   right: 0;
-  border: 2px solid red;
+}
+.themeSelectionActive
+{
+  top: 0%;
 }
 
 .themeSelection .themeCode
@@ -167,12 +185,6 @@
   padding: 1rem;
   color: var(--fontColor);
 }
-
-.themeSelection .themeCode input
-{
-  
-}
-
 
 
 
