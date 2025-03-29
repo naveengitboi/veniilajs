@@ -67,14 +67,10 @@ function playGame() {
   inputAnswer.addEventListener("change", checkAnswer);
 }
 
-let steps = 100;
+let steps = 10;
 while(steps > 0)
 {
   playGame();
-
-  setTimeout(() => {
-    steps--;
-  }, 100);
 
 }
 
