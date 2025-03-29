@@ -6,6 +6,9 @@
 
 :root
 {
+  --bgColor: skyblue;
+  --secColor: white;
+  --triColor: black;
   --largeContent: 2rem;
   --mediumContent: 1.5rem;
   --smallContent: 1rem;
@@ -30,7 +33,7 @@
 
 body
 {
-  background: skyblue;
+  background: var(--bgColor);
 }
 
 .gameWrapper
@@ -47,6 +50,23 @@ navbar
   padding: 0.5rem 1rem;
   background: #ffffff;
   border-radius: 0.5rem;
+}
+.gameOptions, .navActionsSection
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gameOptions p
+{
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--bgColor);
+  margin: 0.25rem;
+}
+.gameOptions .selectedOption
+{
+  background: var(--bgColor);
+  color: var(--triColor);
 }
 
 .navActionsSection p
@@ -86,11 +106,11 @@ navbar
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--size);
   height: var(--size);
+  width:calc( var(--size) + 80px);
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border:1px solid skyblue;
+  border:1px solid var(--bgColor);
   margin: 0 0.5rem;
   border-radius: 0.25rem;
 }
@@ -101,8 +121,23 @@ navbar
   justify-content: center;
   align-items: center;
   padding: 10vh 2rem;
-  border:1px solid skyblue;
+  border:1px solid var(--bgColor);
   border-radius: 0.25rem;
+}
+
+.startBtn
+{
+  background: var(--bgColor);
+  width: 100%;
+  border: none;
+  margin: 0.25rem 0;
+  outline: none;
+  padding: 1.25rem;
+  cursor:pointer;
+}
+.hideStartBtn
+{
+  display: none;
 }
 
 .answer
@@ -112,9 +147,13 @@ navbar
   width: 100%;
   margin: 0.5rem 0;
   outline: none;
-  border: 2px solid skyblue;
+  border: 2px solid var(--bgColor);
   padding: 0.5rem 1rem;
   text-align: center;
+  display: none;
+}
+.showAnswerInput{
+  display: block;
 }
 .answer::-webkit-outer-spin-button,
 .answer::-webkit-inner-spin-button {

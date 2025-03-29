@@ -11,7 +11,12 @@
     <div class="gameWrapper">
       <navbar>
         <p class="largeContent">Speed Maths</p>
-        <div class="navActionsSection">
+        <div class="gameOptions">
+          <p class="smallContent selectedOption" data-type="time" data-count="60">60 sec</p>
+          <p class="smallContent" data-type="time" data-count="120">120 sec</p>
+          <p class="smallContent" data-type="questions" data-count="10">10 Qs</p>
+        </div>
+        <div class="navActionsSection smallContent">
           <p class="newGame">New Game</p>
           <p class="history">History</p>
         </div>
@@ -30,11 +35,13 @@
             <p class="largeContent operator">+</p>
             <p class="largeContent secondNumber">10</p>
           </div>
+          <button class="startBtn">Start</button>
           <input type="text" class="answer" />
         </div>
       </div>
     </div>
 
+    <script src="helper.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
