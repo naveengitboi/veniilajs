@@ -1,0 +1,135 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+:root
+{
+  --largeContent: 2rem;
+  --mediumContent: 1.5rem;
+  --smallContent: 1rem;
+}
+
+.largeContent
+{
+  font-size: var(--largeContent);
+  font-weight: bold;
+}
+
+.mediumContent
+{
+  font-size: var(--mediumContent);
+  font-weight: 500;
+}
+
+.smallContent
+{
+  font-size: var(--smallContent);
+}
+
+body
+{
+  background: skyblue;
+}
+
+.gameWrapper
+{
+  min-height: 100vh;
+  padding: 0.5rem 1rem;
+}
+
+navbar
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+}
+
+.navActionsSection p
+{
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.cardWrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer
+{
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  min-width: 600px;
+}
+
+.cardHeader, .cardActions
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.cardActions p
+{
+  --size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border:1px solid skyblue;
+  margin: 0 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.cardBody
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10vh 2rem;
+  border:1px solid skyblue;
+  border-radius: 0.25rem;
+}
+
+.answer
+{
+  font-size: var(--mediumContent);
+  font-weight: bold;
+  width: 100%;
+  margin: 0.5rem 0;
+  outline: none;
+  border: 2px solid skyblue;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+.answer::-webkit-outer-spin-button,
+.answer::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.answer[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+
+
