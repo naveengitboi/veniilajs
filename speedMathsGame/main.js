@@ -53,7 +53,7 @@ function updateScore(val) {
   score.innerText = val;
 }
 
-function moveToNextQuestion() {}
+function moveToNextQuestion() { }
 
 function checkAnswer(e, fnum, snum, ope) {
   console.log(fnum, snum, ope);
@@ -87,13 +87,13 @@ function resetGame() {
 
 newGame.addEventListener("click", resetGame);
 
-function startGame(e){
+function startGame(e) {
   startGameEle.classList.add('hideStartBtn')
   inputAnswer.classList.add('showAnswerInput')
   inputAnswer.focus();
 }
 
 
-startGameEle.addEventListener('click',startGame)
+startGameEle.addEventListener('click', startGame)
 
 
