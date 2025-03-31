@@ -6,8 +6,15 @@ const inputAnswer = document.querySelector(".answer");
 const newGame = document.querySelector(".newGame");
 const startGameEle = document.querySelector('.startBtn')
 
+const history = [];
+
 let operatorSymbol = ["*", "+", "-", "/"];
 let points = 0;
+
+let scoreCard = {
+  "correct": [],
+  "incorrect": [],
+}
 
 function getRandomNumber(minRange, maxRange) {
   let randInt = Math.floor(
@@ -55,30 +62,43 @@ function updateScore(val) {
 
 function moveToNextQuestion() { }
 
-function checkAnswer(e, fnum, snum, ope) {
-  console.log(fnum, snum, ope);
+function checkAnswer(e, fnum, snum, ope, que, numOfQuestions){
   let target = getTarget(fnum, snum, ope);
-  console.log(target);
-  let val = e.target.value;
-  if (val == target) {
-    updateScore(++points);
-    inputAnswer.value = "";
-    playGame();
+  let userEntered = e.target.value;
+  console.log(userEntered, target, que);
+  if (userEntered == target) {
+    points = points+ 1;
+    updateScore(points);
+    scoreCard.correct.push([{
+      "question":que,
+      "userEntered": userEntered,
+      "target": target
+    }]);
+    return;
+  }else{
+    scoreCard.incorrect.push([{
+      "question":que,
+      "userEntered":userEntered,
+      "target": target
+    }])
   }
+  inputAnswer.value = "";
 }
 
 function playGame() {
+  if(numOfQuestions == 0){
+    return;
+  }
   let [fnum, snum, ope] = getValues(1, 30);
   firstNum.innerText = fnum;
   secondNum.innerText = snum;
   operator.innerText = ope;
+  let question = `${fnum}${ope}${snum}`;
   inputAnswer.addEventListener("change", (e) => {
-    checkAnswer(e, fnum, snum, ope);
+    checkAnswer(e, fnum, snum, ope, question, numOfQuestions);
   });
 }
 
-let steps = 10;
-playGame();
 
 function resetGame() {
   points = 0;
@@ -87,13 +107,26 @@ function resetGame() {
 
 newGame.addEventListener("click", resetGame);
 
+
 function startGame(e) {
   startGameEle.classList.add('hideStartBtn')
   inputAnswer.classList.add('showAnswerInput')
   inputAnswer.focus();
+  if(gameOpted.type == "questions"){
+    let numOfQuestions = gameOpted.count;
+    // while(numOfQuestions){
+    //   console.log(numOfQuestions);
+    //   playGame(numOfQuestions);
+    //   numOfQuestions--;
+    // }
+    playGame();
+  }
 }
 
 
 startGameEle.addEventListener('click', startGame)
+
+
+
 
 
