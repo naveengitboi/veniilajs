@@ -1,5 +1,5 @@
 const gameOptionsEle = document.querySelectorAll('.gameOptions p');
-const timer = document.querySelector('.timer');
+const timerEle = document.querySelector('.timer');
 
 let gameOpted = {
   "type":"time",
@@ -11,7 +11,7 @@ function makeSelection(e, ele)
     if(item == ele){
       item.classList.add('selectedOption');
       gameOpted = {...item.dataset}
-      updateTimer();
+      updateTimerEleSelection();
     }else{
       item.classList.remove('selectedOption');
     }
@@ -22,14 +22,14 @@ gameOptionsEle.forEach((ele) => {
   ele.addEventListener('click', (event) => makeSelection(event, ele))
 })
 
-function updateTimer(){
+function updateTimerEleSelection(){
   let timerText = null;
   if(gameOpted.type == 'time'){
     timerText = gameOpted.count + "sec";
   }else{
     timerText = gameOpted.count + "Q's";
   }
-  timer.innerText = timerText;
+  timerEle.innerText = timerText;
 }
 
 
