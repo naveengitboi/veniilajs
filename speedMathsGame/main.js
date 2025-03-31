@@ -54,17 +54,13 @@ function getTarget(fnum, snum, ope) {
   return target;
 }
 
-inputAnswer.focus();
-
 function updateScore(val) {
   score.innerText = val;
 }
 
-function moveToNextQuestion() { }
-
 function checkAnswer(e, fnum, snum, ope, que) {
   let target = getTarget(fnum, snum, ope);
-  let userEntered = e.target.value;
+  let userEntered = inputAnswer.value;
   console.log(userEntered, target, que);
   if (userEntered == target) {
     points = points + 1;
@@ -101,10 +97,8 @@ function playGame() {
   inputAnswer.value = "";
   inputAnswer.addEventListener("change", (e) => {
     outcome = checkAnswer(e, fnum, snum, ope, question);
-  });
-  if(inputAnswer.value != ""){
     return outcome;
-  }
+  });
 }
 
 function resetGame() {
@@ -112,42 +106,17 @@ function resetGame() {
   updateScore(points);
 }
 
-newGame.addEventListener("click", resetGame);
 
 
 let timerIntervalForQuestion  = 5;
 
-function updateTimerAndQuestion() {
-  let questionTimeRunner = timerIntervalForQuestion;
-  let timeIntervalId = setInterval(() => {
-    questionTimerEle.innerText = questionTimeRunner;
-    console.log(questionTimeRunner);
-    questionTimeRunner--;
-    if (questionTimeRunner <= 0) {
-      clearInterval(timeIntervalId);
-    }
-  }, 1000);
-}
-
-
 function loopGame(numOfQuestions = 3){
-  if(numOfQuestions <= 0){
-    return;
-  }
-  console.log("question count",numOfQuestions)
     let questionIntervalTimer = timerIntervalForQuestion;
-    let questionIntervalId = setInterval(() => {
-      updateTimerAndQuestion();
-      let output = playGame();
-      console.log("Question timer", questionIntervalTimer, output);
-      questionIntervalTimer--;
-      if (questionIntervalTimer <= 0 || output){
-        clearInterval(questionIntervalId);
-        console.log("Question timer cleared");
-        numOfQuestions--;
-        loopGame(numOfQuestions);
-      }
-    }, 5000);
+  while(numOfQuestions){
+    updateTimerAndQuestion(timerIntervalForQuestion, questionTimerEle, 1000);
+    console.log(numOfQuestions);
+    numOfQuestions--;
+  }
 }
 
 function startGame(e) {
@@ -160,6 +129,8 @@ function startGame(e) {
   }
 }
 
+//starting game
 startGameEle.addEventListener("click", startGame);
 
-
+//reset game
+newGame.addEventListener("click", resetGame);
