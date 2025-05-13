@@ -12,8 +12,12 @@ body
     justify-content: center;
     align-items: center;
 }
+#networkCanvas
+{
+    background: black;
+}
 
-#myCanvas
+#carCanvas
 {
     background-color: rgb(205, 200, 200);
 }
