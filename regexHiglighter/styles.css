@@ -1,0 +1,68 @@
+.editor-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.controls {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.text-input,
+.highlight-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.text-input {
+  background: transparent;
+  color: #000;
+  border: 1px solid #ccc;
+  resize: vertical;
+  z-index: 1;
+}
+
+.highlight-layer {
+  background: #fff;
+  color: transparent;
+  border: 1px solid #ccc;
+  pointer-events: none;
+  z-index: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+.highlight {
+  background-color: yellow;
+  color: transparent;
+  border-radius: 2px;
+}
+
+.match-count {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}

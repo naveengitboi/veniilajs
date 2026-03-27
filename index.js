@@ -19,6 +19,13 @@ const projects = [
         description: "video player with Custom Controls",
         thumbnail: "", 
         learnt: "While doing this project I gone through Different addeventlisteners which I never known they exist and can be used."
+    },
+     {
+        projectUrl: 'regexHiglighter/index.html',
+        projectName: "Regex Texter",
+        description: "building existing tool for learning",
+        thumbnail: "", 
+        learnt: "OOPs usage"
     }
 ]
 

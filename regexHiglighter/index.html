@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="editor-container">
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search term or regex pattern...">
+            <input type="text" id="replaceInput" placeholder="Replace with...">
+            <button id="searchBtn">Search</button>
+            <button id="replaceBtn">Replace</button>
+            <label>
+                <input type="checkbox" id="regexMode"> Use Regex
+            </label>
+            <label>
+                <input type="checkbox" id="caseSensitive"> Case Sensitive
+            </label>
+        </div>
+
+        <div class="textarea-wrapper">
+            <div id="highlightLayer" class="highlight-layer"></div>
+            <textarea id="textInput" class="text-input" placeholder="Enter your text here..."></textarea>
+        </div>
+
+        <div id="matchCount" class="match-count"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
